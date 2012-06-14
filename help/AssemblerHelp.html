@@ -1,0 +1,115 @@
+<span style="font-weight: bold; font-family: serif; font-size: 14pt;">Registers in the 8086</span> <br style="font-family: serif;" />
+<br style="font-family: serif;" />
+<span style="font-family: serif; font-weight: bold;">General Purpose Registers</span><br />
+<br />
+AX Accumulator - The main arithmetic register<br />
+BX Base - Used as a memory base or offset<br />
+CX Counter - Used as a counter for loops<br />
+DX Data - General 16-bit storage, division remainder<span style="font-weight: bold;"><br />
+  <br />
+  Offset Registers</span><br />
+IP Instruction pointer - Current instruction offset<br />
+SP Stack pointer - Current stack offset<br />
+BP Base pointer -  Base for referencing values stored on stack<br />
+SI Source index - General addressing, source offset in string ops<br />
+DI Destination index - General addressing, destination in string ops<br />
+<br />
+<span style="font-weight: bold;">Segment Registers</span><br />
+CS Code segment  -Segment to which IP refers<br />
+SS Stack segment - Segment to which SP refers<br />
+DS Data segment  - General addressing, usually forprogram variables and global variables<span style="font-size: 14pt; font-weight: bold;"><br />
+  <br />
+  Supported Addressing Modes</span><br />
+  <strong>Register Addressing</strong><br />
+  Both the instructions destination and source operands contain registers<br />
+  For example:<br />
+  mov ax, bx<br /><br />
+  <strong>Immediate Addressing</strong><br />
+  The source is a constant<br />
+  For example:<br />
+  mov ax, 25<br /><br />
+  <strong>Direct Addressing</strong><br />
+  They load their respective registers with the specified memory constant.<br />
+  For example:<br />
+  mov ax, [1000]<br /><br />
+  <strong>Indexed Addressing</strong><br />
+  For example:<br />
+  mov ax, [bx]<br />
+  The mov ax, [bx] instruction loads ax from the memory location specified by the contents of the bx register. Rather than using the value in bx, this instruction accesses to the memory location whose address appears in bx.<br />
+  <br />
+  <span style="font-size: 14pt; font-weight: bold;">Supported Instructions</span><span style="font-weight: bold;"><br />
+  <br />
+  add </span>- Add two numbers<br />
+Syntax: add dest, src<br />
+dest: register or memory<br />
+src: register, memory, or immediate<br />
+Action: dest = dest + src<span style="font-weight: bold;"><br />
+  <br />
+  call </span>- Call procedure or function<br />
+Syntax: call addr<br />
+addr: register, memory, or immediate<br />
+Action: Push IP onto stack, set IP to addr.<span style="font-weight: bold;"><br />
+  <br />
+  cmp </span>- Compare two operands<br />
+Syntax: cmp op1, op2<br />
+op1: register or memory<br />
+op2: register, memory, or immediate<br /><br />
+<span style="font-weight: bold;">dec </span>- Decrement by 1<br />
+Syntax:	dec	op<br />
+op: register or memory<br />
+Action: op = op - 1<br /><br/>
+<span style="font-weight: bold;">div </span>- Divide two numbers<br />
+Syntax: div dest, src<br />
+dest: register or memory<br />
+src: register, memory, or immediate<br />
+Action: dest = dest / src<br /><br />
+<span style="font-weight: bold;">inc </span>- Increment by 1<br />
+Syntax:	inc	op<br />
+op: register or memory<br />
+Action: op = op + 1<br /><br/>
+  j</span>?? - Jump if ?? condition met<br />
+Syntax: j?? Label<br />
+Action: If condition ?? met, Jump to label<br />
+Use the cmp instruction to compare two operands then j?? to jump conditionally. The ?? of the instruction name represents the jump condition, allowing for following instructions:<br />
+ <span style="font-weight: bold;">je </span>jump if equal, ==<span style="font-weight: bold;"><br />
+  jne </span>jump if not equal, !=<span style="font-weight: bold;"><br />
+  jg </span>jump if greater than, signed ><span style="font-weight: bold;"><br />
+  jge </span>jump if greater than or equal, signed >=<span style="font-weight: bold;"><br />
+  jl </span>jump if less than, signed &lt;<span style="font-weight: bold;"><br />
+  jle </span>jump if less than or equal, signed &lt;=<span style="font-weight: bold;"><br />
+  <br />
+  jmp </span>- Unconditional jump<br />
+Syntax: jump Label<br /><br />
+<span style="font-weight: bold;">mul </span>- Multiply two numbers<br />
+Syntax: mul dest, src<br />
+dest: register or memory<br />
+src: register, memory, or immediate<br />
+Action: dest = dest * src<br /><br />
+ <span style="font-weight: bold;"> mov </span>- Move data<br />
+Syntax: mov dest, src<br />
+dest: register or memory<br />
+src: register, memory, or immediate<br />
+Action: dest = src<br /><br />
+<span style="font-weight: bold;">neg </span>- Negate a number<br />
+  Syntax:	neg	op<br/>
+  op: register or memory<br />
+  Action: op = 0 - op<br /><br />
+<span style="font-weight: bold;">pop </span>- Pop word from stack<br />
+Syntax: pop op16<br />
+reg16: 16-bit register or memory<br />
+Action: Pop word off the stack<br/><br />
+<span style="font-weight: bold;">push </span>- Push word onto stack<br />
+Syntax: push op16<br />
+op16: 16-bit register or memory<br />
+Action: Push op16 onto the stack<br /><br />
+<span style="font-weight: bold;">ret op</span> - Return from procedure or function
+  Syntax:	ret <br  />
+  op: bytes to deallocate from stack<br />
+  Action: Pop word from stack and place it in IP.<br /><br />
+
+<span style="font-weight: bold;">sub </span>- Subtract two numbers<br />
+Syntax: sub dest, src<br />
+dest: register or memory<br />
+src: register, memory, or immediate<br />
+Action: dest = dest - src<br /><br />
+

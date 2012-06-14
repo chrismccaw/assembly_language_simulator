@@ -1,0 +1,14 @@
+<project default="build_assembly_language">
+	<target name="compile">
+		<javac srcdir="." />
+	</target>
+	<target name="jar" depends="compile">
+		<jar destfile="assembly_language_simulator.jar" filesetmanifest="mergewithoutmain">
+			<manifest>
+				<attribute name="Main-Class" value="cpu.Main" />
+				<attribute name="Class-Path" value="." />
+			</manifest>
+		</jar>
+	</target>
+	<target name="build_assembly_language" depends="compile,jar" />
+</project>

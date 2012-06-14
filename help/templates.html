@@ -1,0 +1,62 @@
+<p><strong>Simple expression</strong></p>
+<table width="200" border="1">
+  <tr>
+    <td>int x = 1;</td>
+    <td> mov ax, 1 <br>
+push ax</td>
+  </tr>
+  <tr>
+    <td>int x = 1 + 2;</td>
+    <td> mov ax, 1 <br>
+push ax <br>
+mov ax, 2 <br>
+push ax <br>
+pop dx <br>
+pop ax <br>
+add ax, dx <br>
+push ax</td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<p><strong>if statement</strong></p>
+<table width="200" border="1">
+  <tr>
+    <td>if(x &lt; 6)</td>
+    <td> IF: <br>
+mov ax, <br>
+cmp ax, 6 <br>
+jge ENDIF <br>
+ENDIF:</td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<p><strong>while loop</strong></p>
+<table width="200" border="1">
+  <tr>
+    <td>while(x &lt;= 10)</td>
+    <td> WHILE: <br>
+mov dx, <br>
+cmp dx, 10 <br>
+jg ENDWHILE <br>
+jmp WHILE <br>
+ENDWHILE:</td>
+  </tr>
+</table>
+<p><strong>Method call</strong></p>
+<table width="200" border="1">
+  <tr>
+    <td> foo(1,2);</td>
+    <td> push 1 <br>
+push 2 <br>
+call foo</td>
+  </tr>
+</table>
+<p><strong>Method</strong></p>
+<table width="200" border="1">
+  <tr>
+    <td>int foo(int x, int y)</td>
+    <td> foo: <br>
+push bp <br>
+mov bp, sp</td>
+  </tr>
+</table>
